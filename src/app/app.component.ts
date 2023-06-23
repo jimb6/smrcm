@@ -6,13 +6,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'Home', url: '/pages/home', icon: 'home-outline' },
+    { title: 'Land Preparation', url: '/pages/land-preperation', icon: 'golf-outline' },
+    { title: 'Use of Fertilizer', url: '/pages/fertilizer', icon: 'shield-checkmark-outline' },
+    { title: 'Post Harvest', url: '/pages/harvest', icon: 'archive-outline' },
+    { title: 'Crop Calendar', url: '/pages/calendar', icon: 'calendar-number-outline' },
+    { title: 'Best Variety', url: '/pages/variety', icon: 'leaf-outline' },
+    { title: 'Water', url: '/pages/water', icon: 'water-outline' },
+    { title: 'Pest & Diseases', url: '/pages/pests-diseases', icon: 'bug-outline' },
+    { title: 'Harvest on Time', url: '/pages/harvest', icon: 'alarm-outline' },
+    { title: 'Storage', url: '/pages/storage', icon: 'archive-outline' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  public labels = [
+    { title: 'Account', url: '', icon: 'key-outline'},
+    { title: 'logout', url: 'pages/login', icon: 'exit-outline'},
+  ];
   constructor() {}
 }

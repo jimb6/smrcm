@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login SMRCM</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block">Sign In</ion-button>
+        <ion-item-divider></ion-item-divider>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a>
+        <p>
+          If you don’t have any account, please
+          click <a [routerLink]="['pages/signup']" class="small-text">sign-up</a>
+        </p>
+
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

@@ -1,0 +1,18 @@
+.menu-cards {
+  padding: 0;
+  margin: auto;
+  text-align: center;
+
+  ion-card-header {
+    padding: 5px;
+  }
+
+  ion-card-subtitle {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.active {
+  border: 2px solid #ddd !important;
+}
