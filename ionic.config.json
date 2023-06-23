@@ -1,0 +1,7 @@
+{
+  "name": "srmc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
