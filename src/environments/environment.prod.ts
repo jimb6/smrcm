@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  databaseName: 'srmc_db',
+  databaseVersion: 1
 };

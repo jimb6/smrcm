@@ -1,40 +1,79 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>signup</ion-title>
+    <ion-title>Signup SMRCM</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <div>
-    <ion-list-header>
-      <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
-    </ion-list-header>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 50%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
-        </p>
-      </ion-label>
-    </ion-item>
-    <p>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
-    </p>
+    <form [formGroup]="signupForm" (ngSubmit)="submitForm()" novalidate>
+
+      <ion-item lines="full">
+        <ion-input label-placement="floating"
+                   label="Full Name"
+                   formControlName="fullName"
+                   type="text" required />
+      </ion-item>
+
+      <!--    Errors for Full Name   -->
+      <div *ngIf="this.signupForm.controls?.['fullName'].touched && this.signupForm.controls?.['fullName'].invalid">
+        <div class="ion-padding" *ngIf="this.signupForm.controls?.['fullName'].errors?.['required']">
+          <ion-note color="danger">Full Name is required.</ion-note>
+        </div>
+        <div class="ion-padding" color="danger" *ngIf="this.signupForm.controls?.['fullName'].errors?.['minlength']">
+          <ion-note color="danger">Full Name should be min 2 chars long.</ion-note>
+        </div>
+      </div>
+
+      <ion-item lines="full">
+        <ion-input label-placement="floating"
+                   label="Username"
+                   formControlName="username"
+                   type="text" required />
+      </ion-item>
+
+      <!--    Errors for Username   -->
+      <div *ngIf="this.signupForm.controls?.['username'].touched && this.signupForm.controls?.['username'].invalid">
+        <div class="ion-padding" *ngIf="this.signupForm.controls?.['username'].errors?.['required']">
+          <ion-note color="danger">Username is required.</ion-note>
+        </div>
+        <div class="ion-padding" color="danger" *ngIf="this.signupForm.controls?.['username'].errors?.['minlength']">
+          <ion-note color="danger">Username should be min 3 chars long.</ion-note>
+        </div>
+      </div>
+
+      <ion-item lines="full">
+        <ion-input label-placement="floating"
+                   label="Password"
+                   formControlName="password"
+                   type="password" required />
+      </ion-item>
+
+      <!--    Errors for Password   -->
+      <div *ngIf="this.signupForm.controls?.['password'].touched && this.signupForm.controls?.['password'].invalid">
+        <div class="ion-padding" *ngIf="this.signupForm.controls?.['password'].errors?.['required']">
+          <ion-note color="danger">Password is required.</ion-note>
+        </div>
+        <div class="ion-padding" color="danger" *ngIf="this.signupForm.controls?.['password'].errors?.['minlength']">
+          <ion-note color="danger">Password should be min 5 chars long.</ion-note>
+        </div>
+      </div>
+
+
+      <ion-row>
+        <ion-col>
+          <ion-button [disabled]="!signupForm?.valid" type="submit" color="danger" expand="block">Sign In</ion-button>
+          <ion-item-divider></ion-item-divider>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <p>
+            If already have an account, please click <br>
+            <a [routerLink]="['pages/login']" class="small-text">sign-in</a>
+          </p>
+        </ion-col>
+      </ion-row>
+    </form>
   </div>
 </ion-content>

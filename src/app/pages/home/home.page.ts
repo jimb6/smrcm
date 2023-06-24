@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
     { title: 'storage', image: 'assets/images/Storage.jpg', url: 'pages/storage'},
   ]
   public selectedCard = 0;
+
   constructor() { }
 
   ngOnInit() {
