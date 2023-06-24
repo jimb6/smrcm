@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
-import {MenuController, ViewDidEnter} from "@ionic/angular";
-import {DatabaseService} from "../../services/database.service";
-import {UserRepository} from "../../repositories/user.repository";
+import {MenuController, ToastController, ViewDidEnter} from "@ionic/angular";
 import {User} from "../../models/User";
+import {UserRepository} from "../../repositories/users/user.repository";
+import {ToastService} from "../../services/toast.service";
 
 @Component({
   selector: 'app-signup',
@@ -14,10 +14,14 @@ export class SignupPage implements OnInit, ViewDidEnter {
 
   signupForm: FormGroup;
   user: User;
+  signingUp: boolean = false;
 
-  constructor(public formBuilder: FormBuilder,
-              private menu: MenuController,
-              private userRepository: UserRepository) {
+  constructor(
+    public formBuilder: FormBuilder,
+    private menu: MenuController,
+    private userRepository: UserRepository,
+    private toast: ToastService
+  ) {
   }
 
   ionViewDidEnter() {
@@ -39,16 +43,32 @@ export class SignupPage implements OnInit, ViewDidEnter {
     return this.signupForm.controls
   }
 
-  async submitForm () {
+  async submitForm() {
     if (this.signupForm.valid) {
+      this.signingUp = true;
       var params = this.signupForm.value;
-      this.user = { fullName: params.fullName, username: params.username, password: params.password } as User
+      this.user = {fullName: params.fullName, username: params.username, password: params.password} as User
       await this.userRepository.create(this.user)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
-      return false
-    } else {
-      return console.log('Please provide all required values!');
+        .then((res: any) => {
+          this.toast.show(
+            'Changes successfully saved!',
+            'checkmark-outline',
+            'success',
+            'custom-toast',
+            [{text: 'Dismiss', role: 'cancel'}]
+          )
+          this.signingUp = false;
+        })
+        .catch((err: any) => {
+          this.toast.show(
+            'Failed to save changes.',
+            'close-circle-outline',
+            'danger',
+            'custom-toast',
+            [{text: 'Dismiss', role: 'cancel'}]
+          )
+          this.signingUp = false;
+        })
     }
   }
 

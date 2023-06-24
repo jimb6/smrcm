@@ -1,8 +1,7 @@
 import {Injectable} from "@angular/core";
-import {DatabaseService} from "../services/database.service";
-import {User} from "../models/User";
+import {DatabaseService} from "../../services/database.service";
+import {User} from "../../models/User";
 import {DBSQLiteValues, SQLiteDBConnection} from "@capacitor-community/sqlite";
-
 
 @Injectable()
 export class UserRepository {

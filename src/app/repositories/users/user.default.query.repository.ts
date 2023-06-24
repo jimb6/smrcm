@@ -1,7 +1,7 @@
 import {environment} from 'src/environments/environment';
 import {Injectable} from "@angular/core";
-import {SqliteService} from "../services/sqlite.service";
-import {User} from "../models/User";
+import {SqliteService} from "../../services/sqlite.service";
+import {User} from "../../models/User";
 import {DBSQLiteValues} from "@capacitor-community/sqlite";
 
 @Injectable()

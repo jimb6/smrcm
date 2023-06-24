@@ -1,0 +1,55 @@
+.logo-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+
+  ion-img {
+    height: 250px;
+    width: 250px;
+  }
+}
+
+
+.submit-btn
+{
+  margin-top: 40px;
+}
+
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+form {
+  border-radius: 10px;
+  width: 100%;
+  align-content: center;
+  text-align: center;
+
+  .error-message
+  {
+    margin: 10px;
+    color: var(--ion-color-danger);
+    align-content: center;
+    background-color: var(--ion-color-danger-contrast-rgb);
+  }
+
+}
+
+ion-img {
+  width: 35%;
+}
+
+.spinner svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+

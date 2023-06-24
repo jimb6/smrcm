@@ -1,11 +1,8 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Signup SMRCM</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="ion-padding">
-  <div>
+  <div class="center">
+    <div class="logo-center">
+      <ion-img src="assets/logos/logo-no-background.svg" alt="SMRCM"/>
+    </div>
     <form [formGroup]="signupForm" (ngSubmit)="submitForm()" novalidate>
 
       <ion-item lines="full">
@@ -62,16 +59,19 @@
 
       <ion-row>
         <ion-col>
-          <ion-button [disabled]="!signupForm?.valid" type="submit" color="danger" expand="block">Sign In</ion-button>
+          <ion-button [disabled]="!signupForm?.valid" type="submit" color="danger" expand="block">
+            <ion-spinner class="spinner" *ngIf="signingUp" name="crescent" />
+            Sign Up
+          </ion-button>
           <ion-item-divider></ion-item-divider>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <p>
-            If already have an account, please click <br>
-            <a [routerLink]="['pages/login']" class="small-text">sign-in</a>
-          </p>
+          <ion-note>
+            Already have an account? <br>
+            <a [routerLink]="['/pages/login']" class="small-text">Log In</a>
+          </ion-note>
         </ion-col>
       </ion-row>
     </form>

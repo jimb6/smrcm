@@ -2,37 +2,30 @@ import {Component, OnInit} from '@angular/core';
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import {ResolveEnd, Router} from '@angular/router';
 import {AuthService} from "../../services/auth.service";
-import {LoadingController, MenuController, ViewWillEnter} from "@ionic/angular";
+import {LoadingController, MenuController, ViewDidEnter, ViewWillEnter} from "@ionic/angular";
+import {User} from "../../models/User";
+import {UserRepository} from "../../repositories/users/user.repository";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage implements OnInit, ViewDidEnter {
 
-  validations_form!: any;
+  loginForm: FormGroup;
+  user: User;
   errorMessage: string = '';
-  serial: string = '';
-  validation_messages = {
-    'email': [
-      {type: 'required', message: 'Email is required.'},
-    ],
-    'password': [
-      {type: 'required', message: 'Password is required.'},
-      {type: 'minlength', message: 'Password must be at least 5 characters long.'}
-    ]
-  };
-
-  loading: any;
+  loggingIn: boolean = false;
 
   constructor(
     private loadingCtrl: LoadingController,
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private menu: MenuController
+    private menu: MenuController,
+    private userRepository: UserRepository
   ) {
-
   }
 
   ionViewDidEnter() {
@@ -40,33 +33,28 @@ export class LoginPage implements OnInit {
   }
 
   async ngOnInit() {
-
-  }
-
-
-  async ionViewWillEnter() {
-
-  }
-
-  async ionViewDidLeave() {
-    this.closeLoading()
-  }
-
-  async tryLogin(value: any) {
-    await this.showLoading()
-
-  }
-
-  async closeLoading() {
-    this.loading.dismiss()
-  }
-
-  async showLoading() {
-    this.loading = await this.loadingCtrl.create({
-      message: 'Loading...',
-      spinner: 'circles',
+    this.loginForm = new FormGroup({
+      username: new FormControl('', Validators.compose([
+        Validators.required,
+      ])),
+      password: new FormControl('', Validators.compose([
+        Validators.minLength(5),
+        Validators.required
+      ]))
     });
-    this.loading.present();
   }
 
+  async tryLogin() {
+    this.loggingIn = true;
+    var params = this.loginForm.value;
+    this.authService.doLogin(params.username, params.password)
+      .then(async (user: User) => {
+        this.loggingIn = false;
+        await this.router.navigate(["/pages/home"]);
+        await this.menu.enable(true)
+      }).catch((ex: any) => {
+      this.loggingIn = false;
+      this.errorMessage = 'Invalid username or password!';
+    });
+  }
 }

@@ -10,8 +10,8 @@ import {SqliteService} from "./services/sqlite.service";
 import {DatabaseService} from "./services/database.service";
 import {InitializeAppService} from "./services/initialize-app.service";
 import {MigrationService} from "./services/migration.service";
-import {UserRepository} from "./repositories/user.repository";
-import {UserDefaultQueryRepository} from "./repositories/user.default.query.repository";
+import {UserRepository} from "./repositories/users/user.repository";
+import {UserDefaultQueryRepository} from "./repositories/users/user.default.query.repository";
 
 export function initializeFactory(init: InitializeAppService) {
   return () => init.initializeApp();
