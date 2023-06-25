@@ -10,8 +10,9 @@ export class LandPreparationPage implements OnInit, AfterViewInit {
 
   currentPath: string;
   currentFragment: string;
-  constructor(private router: ActivatedRoute) {
+  constructor(private router: ActivatedRoute, private route: Router) {
     router.fragment.subscribe((fragment: string) => this.currentFragment = fragment);
+    this.currentPath = route.url
   }
 
   ngOnInit() {

@@ -5,9 +5,9 @@ let contentsData: Content[] = [
     id: 1,
     title: 'Pag-andam sa Uma',
     subtitle: 'Land preparation',
-    highlight: '',
+    highlight: 'Land preparation',
     url: '/pages/land-preparation',
-    fragment: ''
+    fragment: 'index'
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ let contentsData: Content[] = [
     highlight: 'Ang maayo pagkapatag nga basakan gikinahanglan alang sa maayong pagtubo sa tanum ug pagdumala niini.\n' +
       '        Makatabang kini sa mga musnod',
     url: '/pages/land-preparation',
-    fragment: '#patag'
+    fragment: 'patag'
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ let contentsData: Content[] = [
       'pareho o dungan ang pagtubo ug pagkagulang sa tanum\n' +
       'episytente nga paggamit sa makinarya sa pagpanguma',
     url: '/pages/land-preparation',
-    fragment: '#assessment'
+    fragment: 'assessment'
   },
 ];
 

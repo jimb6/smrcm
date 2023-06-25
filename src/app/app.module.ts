@@ -15,9 +15,10 @@ import {UserDefaultQueryRepository} from "./repositories/users/user.default.quer
 import {ContentRepository} from "./repositories/contents/content.repository";
 import {ContentDefaultQueryRepository} from "./repositories/contents/content.default.query";
 import {SeederService} from "./services/seeder.service";
+import {DetailService} from "./services/detail.service";
 
 export function initializeFactory(init: InitializeAppService) {
-  return () => init.initializeApp();
+  return async () => await init.initializeApp();
 }
 
 @NgModule({
@@ -25,6 +26,7 @@ export function initializeFactory(init: InitializeAppService) {
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     SqliteService,
+    DetailService,
     DatabaseService,
     InitializeAppService,
     {

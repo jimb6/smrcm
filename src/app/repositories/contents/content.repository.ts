@@ -15,16 +15,17 @@ export class ContentRepository {
     })
   }
 
-  async create(content: Content) {
+  async create(content: Content) : Promise<Content> {
     return this._databaseService.executeQuery<any>(async (db: SQLiteDBConnection) => {
       let sqlCmd: string = "INSERT INTO contents (title, subtitle, highlight, url, fragment) values (?, ?, ?, ?, ?)";
       let values: Array<any> = [content.title, content.subtitle, content.highlight, content.url, content.fragment];
       let ret: any = await db.run(sqlCmd, values);
+      console.log('CONTENT CHANGES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ' + JSON.stringify(ret))
       if (ret.changes.lastId > 0) {
+        return ret.changes as Content;
       }
-      return ret.changes as Content;
+      throw Error('Create Content Failed!');
     });
-    throw Error('Create Content Failed!');
   }
 
   async get(id: number): Promise<Content> {
@@ -32,10 +33,9 @@ export class ContentRepository {
       var sqlCmd: string = `SELECT * FROM contents where id = ? limit 1`;
       let values: Array<any> = [id];
       let ret: any = await db.query(sqlCmd, values)
-      if (ret.values.length > 0) {
-        throw Error('Get Content Failed!')
+      if (ret.values.length > 0)
         return ret.values[0] as Content;
-      }
+      throw Error('Get Content Failed!')
     })
   }
 
@@ -46,7 +46,7 @@ export class ContentRepository {
       let ret: any = await db.query(sqlCmd, values);
       if (ret.changes.changes > 0)
         return await this.get(content.id);
-      throw Error('F')
+      throw Error('Update content failed.')
     });
   }
 

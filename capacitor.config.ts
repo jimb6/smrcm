@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'srmc',
+  appId: 'io.smrcm.dev',
+  appName: 'Simplified Mobile-based Rice Crop Manager',
   webDir: 'www',
   server: {
     androidScheme: 'https'

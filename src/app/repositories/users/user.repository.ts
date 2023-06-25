@@ -20,8 +20,8 @@ export class UserRepository {
     return this._databaseService.executeQuery<any>(async (db: SQLiteDBConnection) => {
       let sqlCmd: string = "INSERT INTO users (fullName, username, password) values (?, ?, ?)";
       let values: Array<any> = [user.fullName, user.username, user.password];
-      let ret: any = await db.run(sqlCmd, values);
-      if (ret.changes.lastId > 0) {
+      let ret = await db.run(sqlCmd, values);
+      if (ret.changes.changes > 0) {
         return ret.changes as User;
       }
       throw Error('Create User Failed!');
@@ -50,9 +50,10 @@ export class UserRepository {
     });
   }
 
-  async delete(id: number) : Promise<void> {
+  async delete(id: number): Promise<void> {
     await this._databaseService.executeQuery(async (db: SQLiteDBConnection) => {
-        await db.query(`DELETE FROM users where id = ${id}`)
+      await db.query(`DELETE FROM users where id = ${id}`)
+      return;
     });
   }
 

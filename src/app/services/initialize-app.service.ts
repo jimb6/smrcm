@@ -12,11 +12,12 @@ export class InitializeAppService {
     private seederService: SeederService
   ) { }
 
-  async initializeApp() {
+  async initializeApp() : Promise<any> {
     await this.sqliteService.initializePlugin().then(async (ret) => {
       try {
         await this.migrationService.migrate();
         await this.seederService.seed();
+        return true;
       } catch (error) {
         throw Error(`initializeAppError: ${error}`);
       }

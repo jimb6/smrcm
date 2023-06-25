@@ -13,11 +13,22 @@
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar (ionInput)="globalSearch($event)"></ion-searchbar>
+    <ion-list id="modal-list" [inset]="true" *ngIf="searchedContents.length > 0" class="ion-no-padding">
+      <ion-list-header> Search Result: {{ searchedContents.length }} </ion-list-header>
+      <div *ngFor="let item of searchedContents;">
+        <ion-item>
+          <ion-label [routerLink]="item.url" [fragment]="item.fragment">
+            <h3>{{item.title}}</h3>
+            <p  class="ion-text-lg-nowrap">{{ item.subtitle }}</p>
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-list>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content class="content">
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let m of menu; let i = index" [attr.data-index]="i">

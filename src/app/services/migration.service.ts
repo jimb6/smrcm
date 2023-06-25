@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
   password TEXT NOT NULL,
   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  last_modified INTEGER DEFAULT (strftime('%s', 'now')),
   UNIQUE(username));
 `;
 
@@ -21,7 +22,8 @@ CREATE TABLE IF NOT EXISTS contents (
   subtitle TEXT NOT NULL,
   highlight TEXT NOT NULL,
   url TEXT NOT NULL,
-  fragment TEXT);
+  fragment TEXT,
+  last_modified INTEGER DEFAULT (strftime('%s', 'now')));
 `;
 
 
@@ -41,12 +43,14 @@ export class MigrationService {
   async createUsersTable() : Promise<any> {
     await this.databaseService.executeQuery(async(db) => {
       await db.execute(createSchemaUsers)
+      return;
     })
   }
 
   async createContentsTable() : Promise<any> {
     await this.databaseService.executeQuery(async(db) => {
       await db.execute(createSchemaContents)
+      return;
     })
   }
 }

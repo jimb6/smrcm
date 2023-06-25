@@ -1,0 +1,15 @@
+{
+  "database": "smrcm_db",
+  "version": 1,
+  "encrypted": true,
+  "mode": "full",
+  "tables": [
+    {
+      "name": "users",
+      "schema": [
+        { "column":  "id", "value":  "INTEGER PRIMARY KEY NOT NULL"}
+      ]
+    }
+  ]
+
+}
