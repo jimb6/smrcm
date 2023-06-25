@@ -42,3 +42,19 @@ ion-toast.custom-toast::part(button) {
   color: #030207;
   font-size: 15px;
 }
+
+ion-header {
+  ion-toolbar {
+    ion-title {
+      margin-top: 10px;
+    }
+  }
+}
+
+p, .normal-line-spacing {
+  line-height: 1.8; /* Adjust the value as needed */
+}
+
+a {
+  text-decoration: none;
+}

@@ -20,8 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
   },
   {
-    path: 'pages/land-preperation',
-    loadChildren: () => import('./pages/land-preperation/land-preperation.module').then( m => m.LandPreperationPageModule)
+    path: 'pages/land-preparation',
+    loadChildren: () => import('./pages/land-preparation/land-preparation.module').then(m => m.LandPreperationPageModule)
   },
   {
     path: 'pages/fertilizer',
@@ -54,12 +54,22 @@ const routes: Routes = [
   {
     path: 'pages/storage',
     loadChildren: () => import('./pages/storage/storage.module').then( m => m.StoragePageModule)
+  },
+  {
+    path: 'pages/about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   }
+
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+      scrollOffset: [0, 64],
+      preloadingStrategy: PreloadAllModules
+    })
   ],
   exports: [RouterModule]
 })

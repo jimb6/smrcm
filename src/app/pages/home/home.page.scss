@@ -2,14 +2,27 @@
   padding: 0;
   margin: auto;
   text-align: center;
+  height: 100%;
+
+  ion-card {
+    height: 100%;
+  }
 
   ion-card-header {
     padding: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ion-card-title {
+    flex-grow: 1;
   }
 
   ion-card-subtitle {
     font-weight: bold;
+    flex: none;
     text-transform: uppercase;
+    bottom: 0;
   }
 }
 

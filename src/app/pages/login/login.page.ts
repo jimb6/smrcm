@@ -5,6 +5,8 @@ import {AuthService} from "../../services/auth.service";
 import {LoadingController, MenuController, ViewDidEnter, ViewWillEnter} from "@ionic/angular";
 import {User} from "../../models/User";
 import {UserRepository} from "../../repositories/users/user.repository";
+import {ContentDefaultQueryRepository} from "../../repositories/contents/content.default.query";
+import {ContentRepository} from "../../repositories/contents/content.repository";
 
 @Component({
   selector: 'app-login',
@@ -23,8 +25,7 @@ export class LoginPage implements OnInit, ViewDidEnter {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router,
-    private menu: MenuController,
-    private userRepository: UserRepository
+    private menu: MenuController
   ) {
   }
 

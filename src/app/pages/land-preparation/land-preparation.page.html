@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span class="ion-text-wrap">
+        Land Preparation <br>
+        <ion-note>
+          Simplified Mobile-based Rice Crop Manager
+        </ion-note>
+      </span>
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" >
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <img alt="Silhouette of mountains" src="../../../assets/images/Land%20Preparation.jpg"/>
+    </ion-thumbnail>
+    <div>
+      <h2 class="ion-text-wrap">
+        Pag-andam sa Uma
+      </h2>
+      <ion-note>
+        Land preparation
+      </ion-note>
+    </div>
+  </ion-item>
+
+  <section id="patag">
+    <h1>{{ currentPath }}</h1>
+    <h2>
+      <a [routerLink]="['/']" fragment="patag">
+        <ion-icon slot="start" name="link-outline"></ion-icon> Patag nga basakan
+      </a>
+    </h2>
+    <ion-text>
+      <p class="ion-text-justify">
+        <b>Kamahinungdanon.</b> Ang maayo pagkapatag nga basakan gikinahanglan alang sa maayong pagtubo sa tanum ug pagdumala niini.
+        Makatabang kini sa mga musnod:
+      </p>
+      <section>
+        <ul>
+          <li><p>episyente nga pagdumala sa patubig</p></li>
+          <li><p>gamay ra ang sagbot</p></li>
+          <li><p>sayon nga pagduamala sa mga kohol</p></li>
+          <li><p>episyente nga paggamit sa nutrina</p></li>
+          <li><p>pareho o dungan ang pagtubo ug pagkagulang sa tanum</p></li>
+          <li><p>episytente nga paggamit sa makinarya sa pagpanguma</p></li>
+        </ul>
+      </section>
+    </ion-text>
+    <ion-text>
+      <p class="ion-text-justify">
+        Aron makabaton ug maayo pagkapatag nga basakan, ang mga sagbot,
+        uhot sa humay ug dagami o stubbles kinahanglan patagon pag ayo
+        ug ang basakan is well-puddled. Ang dili maayo nga pag-andam sa
+        basakan mahimong hinungdan nga mumenus ug 5% ang abot.
+      </p>
+    </ion-text>
+  </section>
+
+  <section id="assessment">
+    <h2>
+      <a [routerLink]="['/']" fragment="assessment">
+        <ion-icon slot="start" name="link-outline"></ion-icon>
+        Assessment of Key Check
+      </a>
+    </h2>
+    <ion-text>
+      <p class="normal-line-spacing ion-text-justify">
+        Walay taas o ubos nga parte human sa katapusang pagpatag:
+      </p>
+      <section>
+        <ul>
+          <li><p>Walay bahin nga mas lalom pa sa 5 sentimetro(sm) nga tubig (usa ka kumagko sa kamot)</p></li>
+          <li><p>gamay ra ang sagbot</p></li>
+          <li><p>sayon nga pagduamala sa mga kohol</p></li>
+          <li><p>episyente nga paggamit sa nutrina</p></li>
+          <li><p>pareho o dungan ang pagtubo ug pagkagulang sa tanum</p></li>
+          <li><p>episytente nga paggamit sa makinarya sa pagpanguma</p></li>
+        </ul>
+      </section>
+      <p>
+
+      </p>
+    </ion-text>
+  </section>
+
+</ion-content>

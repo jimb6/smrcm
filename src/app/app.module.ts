@@ -12,6 +12,9 @@ import {InitializeAppService} from "./services/initialize-app.service";
 import {MigrationService} from "./services/migration.service";
 import {UserRepository} from "./repositories/users/user.repository";
 import {UserDefaultQueryRepository} from "./repositories/users/user.default.query.repository";
+import {ContentRepository} from "./repositories/contents/content.repository";
+import {ContentDefaultQueryRepository} from "./repositories/contents/content.default.query";
+import {SeederService} from "./services/seeder.service";
 
 export function initializeFactory(init: InitializeAppService) {
   return () => init.initializeApp();
@@ -31,9 +34,11 @@ export function initializeFactory(init: InitializeAppService) {
       multi: true,
     },
     MigrationService,
+    SeederService,
     UserRepository,
     UserDefaultQueryRepository,
-
+    ContentRepository,
+    ContentDefaultQueryRepository,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

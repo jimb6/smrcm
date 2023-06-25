@@ -14,6 +14,17 @@ CREATE TABLE IF NOT EXISTS users (
   UNIQUE(username));
 `;
 
+export const createSchemaContents: string = `
+CREATE TABLE IF NOT EXISTS contents (
+  id INTEGER PRIMARY KEY NOT NULL,
+  title TEXT NOT NULL,
+  subtitle TEXT NOT NULL,
+  highlight TEXT NOT NULL,
+  url TEXT NOT NULL,
+  fragment TEXT);
+`;
+
+
 @Injectable()
 export class MigrationService {
 
@@ -24,11 +35,18 @@ export class MigrationService {
 
   async migrate(): Promise<any> {
     await this.createUsersTable();
+    await this.createContentsTable()
   }
 
   async createUsersTable() : Promise<any> {
     await this.databaseService.executeQuery(async(db) => {
       await db.execute(createSchemaUsers)
+    })
+  }
+
+  async createContentsTable() : Promise<any> {
+    await this.databaseService.executeQuery(async(db) => {
+      await db.execute(createSchemaContents)
     })
   }
 }
