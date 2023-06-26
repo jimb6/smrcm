@@ -1,53 +1,71 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      <span class="ion-text-wrap">
-        Use of Fertilizer <br>
-        <ion-note>
-          Simplified Mobile-based Rice Crop Manager
-        </ion-note>
-      </span>
-    </ion-title>
-  </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
-  </ion-toolbar>
-</ion-header>
+<app-global-header title="Use of Fertilizer"></app-global-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <img alt="Silhouette of mountains" src="../../../assets/images/use_fertilizer.jpg"/>
+    </ion-thumbnail>
+    <div>
+      <h2 class="ion-text-wrap">
+        Pagdumala sa Nutrina
+      </h2>
+      <ion-note>
+        Use of Fertilizer
+      </ion-note>
+    </div>
+    <h1>{{ currentFragment }}</h1>
+  </ion-item>
 
-<ion-content [fullscreen]="true">
-  <div>
-    <ion-list-header>
-      <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
-    </ion-list-header>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 50%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
-        </p>
-      </ion-label>
-    </ion-item>
-    <p>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
-    </p>
-  </div>
+  <section id="pagdumalasanutrina">
+    <h2>
+      <a [routerLink]="['/']" fragment="pagdumalasanutrina">
+        <ion-icon slot="start" name="link-outline"></ion-icon>
+        Supisyente nga nutrina gikan sa tillering hangtod sa early panicle initiation (EPI) ug pagpamulak
+      </a>
+    </h2>
+    <ion-text>
+      <p class="ion-text-justify">
+        <b>Kamahinungdanon.</b>
+        Ang pagbutang ug mga nutrina sama sa abono maoy mapuno sa kal-ang tali sa kung unsa ang gikinahanglan
+        sa tanum ug kung unsa ang anaa sa yuta, tubig ug hangin sa pagkakaron.
+      </p>
+    </ion-text>
+    <ion-text>
+      <p class="ion-text-justify">
+        Supisyente nga nutrina gikan sa pgasaha ngadto sa sayo nga pagbuswak ug pagpamulak masiguro ang
+        maayong tubo ug pareho ang pagdebelop sa uhay sa tanum. Masiguro usab niini nga makuha ang potensyal nga abot sa tanum.
+      </p>
+    </ion-text>
+    <ion-text>
+      <p class="ion-text-justify">
+        Kung ang nutrina dili supisytente atol niining panahona, mamahimong hinay ang pagtubo, mas gamay ang saha ug uhay,
+        mas gamay ra ang liso, ug mas gaan ang lugas. Kung manghinobra ang nutrina mahimo usab kini nga hinungdan sa
+        kadaot tungod sa peste, paghapla, ug polusyon sa yuta.
+      </p>
+    </ion-text>
+  </section>
+
+  <section id="assessment">
+    <h2>
+      <a [routerLink]="['/']" fragment="assessment">
+        <ion-icon slot="start" name="link-outline"></ion-icon>
+        Assessment of Key Check
+      </a>
+    </h2>
+    <ion-text>
+      <p class="normal-line-spacing ion-text-justify">
+        Walay taas o ubos nga parte human sa katapusang pagpatag:
+      </p>
+      <section>
+        <ul>
+          <li><p>Walay sintomas sa kakulang sa nutrina o toxicity gikan sa pagsaka ngadto sa sayo nga pagbuswak (EPI) ug pagpamulak.</p></li>
+          <li><p>Makab-ot ang dili momenus sa 300 ka uhay/m? (kung gitanum)
+            (300 panicles/m? (TPR) o 350 ka uhay/m? direct wet-seeded rice (DWSR) at dough stage.</p></li>
+        </ul>
+      </section>
+      <p>
+
+      </p>
+    </ion-text>
+  </section>
+
 </ion-content>

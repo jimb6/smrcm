@@ -1,22 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      <span class="ion-text-wrap">
-        Land Preparation <br>
-        <ion-note>
-          Simplified Mobile-based Rice Crop Manager
-        </ion-note>
-      </span>
-    </ion-title>
-  </ion-toolbar>
-  <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
-  </ion-toolbar>
-</ion-header>
-
+<app-global-header title="Land Preparation"></app-global-header>
 <ion-content [fullscreen]="true" class="ion-padding" >
   <ion-item>
     <ion-thumbnail slot="start">
@@ -33,7 +15,6 @@
   </ion-item>
 
   <section id="patag">
-    <h1>{{ currentPath }}</h1>
     <h2>
       <a [routerLink]="['/']" fragment="patag">
         <ion-icon slot="start" name="link-outline"></ion-icon> Patag nga basakan

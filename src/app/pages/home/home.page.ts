@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Content} from "../../models/Content";
 import {ContentRepository} from "../../repositories/contents/content.repository";
 import {ContentDefaultQueryRepository} from "../../repositories/contents/content.default.query";
-import {search} from "ionicons/icons";
 import {DetailService} from "../../services/detail.service";
 import {ViewWillEnter} from "@ionic/angular";
 
@@ -27,7 +25,7 @@ export class HomePage implements OnInit, ViewWillEnter {
   public selectedCard = 0;
   public exConn: boolean;
 
-  searchedContents: Content[] = [];
+
 
   constructor(
     private contentDefaultRepository: ContentDefaultQueryRepository,
@@ -43,12 +41,4 @@ export class HomePage implements OnInit, ViewWillEnter {
     this.exConn = this._detailService.getExistingConnection();
   }
 
-  async globalSearch($event: any) {
-    if ($event.target.value === '') {
-      this.searchedContents = []
-      return;
-    }
-    await this.contentDefaultRepository.searchContent($event.target.value)
-      .then((res: Content[]) => this.searchedContents = res.slice(0, 5));
-  }
 }

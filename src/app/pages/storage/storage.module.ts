@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { StoragePageRoutingModule } from './storage-routing.module';
 
 import { StoragePage } from './storage.page';
+import {SharedModule} from "../../modules/shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    StoragePageRoutingModule
+    StoragePageRoutingModule,
+    SharedModule
   ],
   declarations: [StoragePage]
 })

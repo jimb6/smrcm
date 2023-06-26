@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { LandPreperationPageRoutingModule } from './land-preparation-routing.module';
 
 import { LandPreparationPage } from './land-preparation.page';
+import {SharedModule} from "../../modules/shared/shared.module";
+import {GlobalHeaderComponent} from "../../components/global-header/global-header.component";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LandPreperationPageRoutingModule
+    LandPreperationPageRoutingModule,
+    SharedModule
   ],
   declarations: [LandPreparationPage]
 })

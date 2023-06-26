@@ -9,6 +9,7 @@ import {User} from "../models/User";
 import {createSchemaUsers} from "./migration.service";
 import contentData from "../repositories/contents/content.data";
 import ContentData from "../repositories/contents/content.data";
+import {capSQLiteSet} from "@capacitor-community/sqlite/src/definitions";
 
 
 export const seedContents: string = `
@@ -50,7 +51,15 @@ export class SeederService {
   async seedContentsTable(): Promise<any> {
     await this.contentRepository.get(1).catch(async _ => {
       await this._databaseService.executeQuery(async (db) => {
-        await db.execute(seedContents)
+        let sqlCommands: capSQLiteSet[] = [];
+        for (let content of contentData) {
+          let sql = {
+            statement: "INSERT INTO contents (id, title, subtitle, highlight, url, fragment) VALUES (?, ?, ?, ?, ?, ?)",
+            values: [content.id, content.title, content.subtitle, content.highlight, content.url, content.fragment]
+          }
+          sqlCommands.push(sql);
+        }
+        await db.executeSet(sqlCommands)
         return;
       })
     })

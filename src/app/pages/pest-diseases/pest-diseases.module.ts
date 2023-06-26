@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PestDiseasesPageRoutingModule } from './pest-diseases-routing.module';
 
 import { PestDiseasesPage } from './pest-diseases.page';
+import {SharedModule} from "../../modules/shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PestDiseasesPageRoutingModule
+    PestDiseasesPageRoutingModule,
+    SharedModule
   ],
   declarations: [PestDiseasesPage]
 })

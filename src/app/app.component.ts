@@ -1,7 +1,4 @@
 import {Component} from '@angular/core';
-import {Platform} from "@ionic/angular";
-import {SqliteService} from "./services/sqlite.service";
-import {DetailService} from "./services/detail.service";
 
 @Component({
   selector: 'app-root',

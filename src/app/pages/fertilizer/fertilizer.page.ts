@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-fertilizer',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FertilizerPage implements OnInit {
 
-  constructor() { }
+
+  currentFragment: string;
+  constructor(private router: ActivatedRoute) {
+    router.fragment.subscribe((fragment: string) => this.currentFragment = fragment);
+  }
 
   ngOnInit() {
+    setTimeout(() => {
+      const element = document.querySelector('#' + this.currentFragment);
+      if (element != null) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 300);
   }
 
 }
