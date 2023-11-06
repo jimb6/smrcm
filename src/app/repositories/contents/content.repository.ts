@@ -20,7 +20,6 @@ export class ContentRepository {
       let sqlCmd: string = "INSERT INTO contents (title, subtitle, highlight, url, fragment) values (?, ?, ?, ?, ?)";
       let values: Array<any> = [content.title, content.subtitle, content.highlight, content.url, content.fragment];
       let ret: any = await db.run(sqlCmd, values);
-      console.log('CONTENT CHANGES >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ' + JSON.stringify(ret))
       if (ret.changes.lastId > 0) {
         return ret.changes as Content;
       }

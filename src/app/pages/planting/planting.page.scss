@@ -1,0 +1,25 @@
+ion-thumbnail.title {
+  --size: 140px;
+  --border-radius: 14px;
+}
+
+ion-thumbnail.content {
+  --size: 90px;
+  --border-radius: 10px;
+}
+
+ion-content::part(scroll) {
+  touch-action: pan-y pinch-zoom;
+}
+
+
+body { font-family: Helvetica; }
+
+
+.section {
+  ion-thumbnail {
+    float: left;
+    margin: 10px;
+
+  }
+}

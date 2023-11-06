@@ -2,70 +2,122 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-item>
     <ion-thumbnail slot="start">
-      <img alt="Silhouette of mountains" src="../../../assets/images/use_fertilizer.jpg"/>
+      <img alt="Silhouette of mountains" src="../../../assets/images/fertilizer/Picture5.jpg"/>
     </ion-thumbnail>
     <div>
       <h2 class="ion-text-wrap">
-        Pagdumala sa Nutrina
+        Use of Fertilizer
       </h2>
       <ion-note>
-        Use of Fertilizer
+        Pagdumala sa Nutrina
       </ion-note>
     </div>
     <h1>{{ currentFragment }}</h1>
   </ion-item>
 
   <section id="pagdumalasanutrina">
-    <h2>
-      <a [routerLink]="['/']" fragment="pagdumalasanutrina">
-        <ion-icon slot="start" name="link-outline"></ion-icon>
-        Supisyente nga nutrina gikan sa tillering hangtod sa early panicle initiation (EPI) ug pagpamulak
-      </a>
-    </h2>
-    <ion-text>
-      <p class="ion-text-justify">
-        <b>Kamahinungdanon.</b>
-        Ang pagbutang ug mga nutrina sama sa abono maoy mapuno sa kal-ang tali sa kung unsa ang gikinahanglan
-        sa tanum ug kung unsa ang anaa sa yuta, tubig ug hangin sa pagkakaron.
-      </p>
-    </ion-text>
-    <ion-text>
-      <p class="ion-text-justify">
-        Supisyente nga nutrina gikan sa pgasaha ngadto sa sayo nga pagbuswak ug pagpamulak masiguro ang
-        maayong tubo ug pareho ang pagdebelop sa uhay sa tanum. Masiguro usab niini nga makuha ang potensyal nga abot sa tanum.
-      </p>
-    </ion-text>
-    <ion-text>
-      <p class="ion-text-justify">
-        Kung ang nutrina dili supisytente atol niining panahona, mamahimong hinay ang pagtubo, mas gamay ang saha ug uhay,
-        mas gamay ra ang liso, ug mas gaan ang lugas. Kung manghinobra ang nutrina mahimo usab kini nga hinungdan sa
-        kadaot tungod sa peste, paghapla, ug polusyon sa yuta.
-      </p>
-    </ion-text>
-  </section>
+    <h5 class="title">
+      <img alt="" src="assets/images/fertilizer/Picture4.png"/>
+      General nutrient management for N, P and K
+    </h5>
 
-  <section id="assessment">
-    <h2>
-      <a [routerLink]="['/']" fragment="assessment">
-        <ion-icon slot="start" name="link-outline"></ion-icon>
-        Assessment of Key Check
-      </a>
-    </h2>
-    <ion-text>
-      <p class="normal-line-spacing ion-text-justify">
-        Walay taas o ubos nga parte human sa katapusang pagpatag:
+    <ion-accordion-group>
+      <ion-accordion value="first">
+        <ion-item slot="header" color="light">
+          <ion-label>Nitrogen (N)</ion-label>
+        </ion-item>
+        <div class="ion-padding section" slot="content">
+          <img alt="" src="assets/images/fertilizer/Picture3.png"/>
+          <p class="ion-text-justify">
+            <b>Nitrogen (N)</b> is essential for root development, tillering, early
+            flowering, and ripening. It is especially deficient in sandy soils
+            with low organic matter contents, in very acid soils and in
+            alkaline soils.
+            P deficient plants are stunted, tillering is reduced, the leaves often have a
+            blackish green color, and maturity is delayed.
+          </p>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="second">
+        <ion-item slot="header" color="light">
+          <ion-label>Phosphorus (P)</ion-label>
+        </ion-item>
+        <div class="ion-padding section" slot="content">
+          <img alt="" src="assets/images/fertilizer/Picture2.png"/>
+          <p class="ion-text-justify">
+            <b>Phosphorus (P)</b> is essential for root growth and plant vigor.
+            It also helps against lodging and improves the crop
+            resistance to diseases. Potassium can quickly become yield
+            limiting in high yielding rice systems where most of the
+            straw is removed because rice straw is rich in K!
+            K deficient plants are stunted dark green plants with yellowish brown leaf
+            margins older leaves can have necrotic tips and margins, and lodging is more
+            frequent.
+          </p>
+        </div>
+      </ion-accordion>
+      <ion-accordion value="third">
+        <ion-item slot="header" color="light">
+          <ion-label>Potassium (K)</ion-label>
+        </ion-item>
+        <div class="ion-padding section" slot="content">
+          <img alt="" src="assets/images/fertilizer/Picture1.png"/>
+          <p class="ion-text-justify">
+            <b>Potassium (K) </b> is essential for root growth and plant vigor.
+            It also helps against lodging and improves the crop
+            resistance to diseases. Potassium can quickly become yield
+            limiting in high yielding rice systems where most of the
+            straw is removed because rice straw is rich in K!
+            K deficient plants are stunted dark green plants with yellowish brown leaf
+            margins older leaves can have necrotic tips and margins, and lodging is more
+            frequent.
+          </p>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+
+    <div class="section">
+      <h3>How much nutrients does the crop need?</h3>
+      <p class="ion-text-justify">
+        In the previous lessons we explained that the crop needs nutrients to
+        grow and mature normally.
       </p>
-      <section>
-        <ul>
-          <li><p>Walay sintomas sa kakulang sa nutrina o toxicity gikan sa pagsaka ngadto sa sayo nga pagbuswak (EPI) ug pagpamulak.</p></li>
-          <li><p>Makab-ot ang dili momenus sa 300 ka uhay/m? (kung gitanum)
-            (300 panicles/m? (TPR) o 350 ka uhay/m? direct wet-seeded rice (DWSR) at dough stage.</p></li>
-        </ul>
-      </section>
-      <p>
+      <p class="ion-text-justify">
+        IThe rice crop needs the following uptake of N, P and K to produce 1
+        ton of grain per hectare:
+      </p>
+      <ul>
+        <li>Nitrogen (N):15-20 kg</li>
+        <li>Phosphorous (P): 2-3 kg</li>
+        <li>Potassium (K): 15-20 kg (If all straw remains in the field and is
+          evenly distributed, K requirements can be reduced to 3-5 kg/ha per
+          ton of grain yield.
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="section">
+      <h3>How much fertilizer do you need to apply?</h3>
+      <p class="ion-text-justify">
+        In every field, you will get a certain grain yield even if you don’t
+        apply any fertilizer. The nutrients for this yield are supplied by the
+        soil. If you want to increase the yield, it is necessary to apply
+        fertilizers.
+      </p>
+      <p class="ion-text-justify">
+        However, it is very important to understand that of all the fertilizer
+        you apply on the field, the crop can only take up a fraction.
+      </p>
+      <p class="ion-text-justify">
+        For nitrogen, for example, even with good management about half
+        the applied fertilizer (50%) is lost. We said above that the plants
+        need to take up 15 to 20 kg of nitrogen per hectare to produce 1 ton
+        of grain. This means we have to apply twice as much fertilizer, or 30
+        to 40 kg of N per hectare, to produce an extra ton of grain!
 
       </p>
-    </ion-text>
+    </div>
   </section>
 
 </ion-content>

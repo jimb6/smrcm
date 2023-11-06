@@ -24,7 +24,6 @@ export class GlobalHeaderComponent  implements OnInit {
       this.searchedContents = []
       return;
     }
-    console.log("SEARCING>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + $event.target.value);
     await this.contentDefaultRepository.searchContent($event.target.value)
       .then((res: Content[]) => this.searchedContents = res.slice(0, 5));
   }

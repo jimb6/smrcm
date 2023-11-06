@@ -1,0 +1,178 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>New Schedule</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 label="Label"
+                 placeholder="Add label"
+                 mode="ios"
+                 [(ngModel)]="schedule.label"
+                 [value]="schedule.label"
+      ></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 label="Remarks"
+                 placeholder="Add remarks"
+                 [(ngModel)]="schedule.remarks"
+                 [value]="schedule.remarks"
+      />
+    </ion-item>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 type="date"
+                 label="Land Preparation"
+                 [value]="schedule.landPrep | date: 'yyyy-MM-dd'"
+                 (ionChange)="updateLandPreparation($event)"
+      />
+    </ion-item>
+
+    <ion-note class="help-text">
+      (Farmer's Practice: 1 month) - Operations applied by farmers in preparation before planting.
+    </ion-note>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 type="date"
+                 label="Seedling Preparation"
+                 [value]="schedule.seedlingPrep | date: 'yyyy-MM-dd'"
+      />
+    </ion-item>
+
+    <ion-note class="help-text">
+      Seeds are submerged in the water for 12 - 24 hrs.
+      Purpose: to soften the seed coat (rice hull) to increase the chance of germination. Rest the seeds for 24hrs. (1
+      day)
+    </ion-note>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 type="date"
+                 label="Broadcasting of Seedlings"
+                 [value]="schedule.broadcasting | date: 'yyyy-MM-dd'"
+      />
+    </ion-item>
+
+    <ion-note class="help-text">
+      1 day process. Seeds are broadcasted to rice paddies with 1 inch water level (pre-germination)
+      <br><br>
+      - After 7 days - Spray insecticide<br>
+      - After 15 days - Spray insecticide
+    </ion-note>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 type="date"
+                 label="Preparation of Rice Field (Plotting)"
+                 [value]="schedule.plotting | date: 'yyyy-MM-dd'"
+      />
+    </ion-item>
+
+    <ion-note class="help-text">
+      18 days after the broadcasting of seedlings.
+    </ion-note>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 type="date"
+                 label="Transplanting of the pre-germinated seeds"
+                 [value]="schedule.transplanting | date: 'yyyy-MM-dd'"
+      />
+    </ion-item>
+
+    <ion-note class="help-text">
+      19 days after the seeds are broadcasted.
+    </ion-note>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 type="date"
+                 label="Application of Fertilizers"
+                 [value]="schedule.sideDressFertilizer | date: 'yyyy-MM-dd'"
+      />
+    </ion-item>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 type="date"
+                 label="Application of Fertilizers"
+                 [value]="schedule.topDressFertilizer | date: 'yyyy-MM-dd'"
+      />
+    </ion-item>
+
+
+    <ion-note class="help-text">
+      - Side dressing of fertilizer application method - 10 days after transplanting. Side dressing is the placement of
+      fertilizer in between the rows of the plants. <br><br>
+      - Top dress application method - 15 days after transplanting. Top dressing application is a broadcasting method of
+      applying fertilizer close to the transplanted crops.
+    </ion-note>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 label="Monitoring"
+                 disabled="true"
+                 [value]="schedule.firstMonitoring[0] | date: 'yyyy-MM-dd'.concat(' - ', schedule.firstMonitoring[1] | date: 'yyyy-MM-dd')"
+      />
+    </ion-item>
+
+    <ion-note class="help-text">
+      16-40 days after transplanting. Done continuously.<br><br>
+      - 40th day - Spraying of insecticide<br>
+      - 60th day - Spraying of insecticide<br>
+      - 90th day - Spraying of insecticide (Foliar Application). Foliar application method is the direct application of
+      pesticides (insecticides, fungicides, et.) to the leaves of the plants.<br>
+    </ion-note>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 label="90 - 100 Days Monitoring"
+                 disabled="true"
+                 [value]="schedule.secondMonitoring[0] | date: 'yyyy-MM-dd'.concat(' - ', schedule.secondMonitoring[1] | date: 'yyyy-MM-dd')"
+      />
+    </ion-item>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 label="100th days - Harvesting"
+                 disabled="true"
+                 [value]="schedule.preHarvesting | date: 'yyyy-MM-dd'"
+      />
+    </ion-item>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 label="2 - 3 days after harvesting"
+                 disabled="true"
+                 [value]="(schedule.postHarvesting[0] | date: 'yyyy-MM-dd').concat(' - ', schedule.postHarvesting[1] | date: 'yyyy-MM-dd')"
+      />
+    </ion-item>
+
+    <ion-note class="help-text">
+      Drying of the harvested mature rice crop in the field. Purpose: to reduce the moisture content of rice for save
+      and long term storage.
+    </ion-note>
+
+    <ion-item>
+      <ion-input label-placement="stacked"
+                 type="text"
+                 label="Milling then Storing"
+                 disabled="true"
+                 [value]="schedule.milling | date: 'yyyy-MM-dd'"
+      />
+    </ion-item>
+  </ion-list>
+
+  <ion-button class="ion-margin" expand="block" (click)="confirm()">Add Schedule</ion-button>
+</ion-content>

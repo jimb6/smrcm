@@ -8,15 +8,17 @@ import { VarietyPageRoutingModule } from './variety-routing.module';
 
 import { VarietyPage } from './variety.page';
 import {SharedModule} from "../../modules/shared/shared.module";
+import {TruncateModule} from "@yellowspot/ng-truncate";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    VarietyPageRoutingModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        VarietyPageRoutingModule,
+        SharedModule,
+        TruncateModule
+    ],
   declarations: [VarietyPage]
 })
 export class VarietyPageModule {}

@@ -1,15 +1,15 @@
 <app-global-header title="Land Preparation"></app-global-header>
-<ion-content [fullscreen]="true" class="ion-padding" >
-  <ion-item>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item lines="none">
     <ion-thumbnail slot="start">
       <img alt="Silhouette of mountains" src="../../../assets/images/Land%20Preparation.jpg"/>
     </ion-thumbnail>
     <div>
       <h2 class="ion-text-wrap">
-        Pag-andam sa Uma
+        Land preparation
       </h2>
       <ion-note>
-        Land preparation
+        Pag-andam sa Uma
       </ion-note>
     </div>
   </ion-item>
@@ -17,60 +17,135 @@
   <section id="patag">
     <h2>
       <a [routerLink]="['/']" fragment="patag">
-        <ion-icon slot="start" name="link-outline"></ion-icon> Patag nga basakan
-      </a>
-    </h2>
-    <ion-text>
-      <p class="ion-text-justify">
-        <b>Kamahinungdanon.</b> Ang maayo pagkapatag nga basakan gikinahanglan alang sa maayong pagtubo sa tanum ug pagdumala niini.
-        Makatabang kini sa mga musnod:
-      </p>
-      <section>
-        <ul>
-          <li><p>episyente nga pagdumala sa patubig</p></li>
-          <li><p>gamay ra ang sagbot</p></li>
-          <li><p>sayon nga pagduamala sa mga kohol</p></li>
-          <li><p>episyente nga paggamit sa nutrina</p></li>
-          <li><p>pareho o dungan ang pagtubo ug pagkagulang sa tanum</p></li>
-          <li><p>episytente nga paggamit sa makinarya sa pagpanguma</p></li>
-        </ul>
-      </section>
-    </ion-text>
-    <ion-text>
-      <p class="ion-text-justify">
-        Aron makabaton ug maayo pagkapatag nga basakan, ang mga sagbot,
-        uhot sa humay ug dagami o stubbles kinahanglan patagon pag ayo
-        ug ang basakan is well-puddled. Ang dili maayo nga pag-andam sa
-        basakan mahimong hinungdan nga mumenus ug 5% ang abot.
-      </p>
-    </ion-text>
-  </section>
-
-  <section id="assessment">
-    <h2>
-      <a [routerLink]="['/']" fragment="assessment">
         <ion-icon slot="start" name="link-outline"></ion-icon>
-        Assessment of Key Check
+        Wet Preperation
       </a>
     </h2>
     <ion-text>
-      <p class="normal-line-spacing ion-text-justify">
-        Walay taas o ubos nga parte human sa katapusang pagpatag:
+      <p class="ion-text-justify">
+        Wet preparation is the most common way of preparing lowland fields. In this method, the soil is tilled in a
+        saturated or flooded condition. It helps improve weed control and facilitates incorporation of nutrients in the
+        soil. With its nature, wet preparation has a high-water requirement.
+        <br><br>
+        The following are the steps and processes involved in wet preparation:
       </p>
-      <section>
-        <ul>
-          <li><p>Walay bahin nga mas lalom pa sa 5 sentimetro(sm) nga tubig (usa ka kumagko sa kamot)</p></li>
-          <li><p>gamay ra ang sagbot</p></li>
-          <li><p>sayon nga pagduamala sa mga kohol</p></li>
-          <li><p>episyente nga paggamit sa nutrina</p></li>
-          <li><p>pareho o dungan ang pagtubo ug pagkagulang sa tanum</p></li>
-          <li><p>episytente nga paggamit sa makinarya sa pagpanguma</p></li>
-        </ul>
-      </section>
-      <p>
 
-      </p>
+      <ion-accordion-group>
+        <ion-accordion value="first">
+          <ion-item slot="header" color="light">
+            <ion-label>Step 1 - Repair or construct bunds</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <p>
+              <b>Repair or construct bunds</b><br><br>
+              Bunds or dikes enable the field to hold water.
+              This is important especially in areas where water supply is not reliable.<br><br>
+              <span>1. </span>Construct no wider and taller than 50cm x 30cm bunds, around the field. <br><br>
+              <span>2. </span>Make sure that bunds are well compacted and properly sealed, with no cracks, holes etc.
+              This will minimize water losses through seepage (particularly in sloping lands).<br><br>
+              <span>3. </span>Adjust the spillway height to 3-5cm for storing the same depth of water. Maintain this
+              height
+              to ensure
+              sufficient water storage capacity especially during rainy or wet season.
+            </p>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="second">
+          <ion-item slot="header" color="light">
+            <ion-label>Step 2 - Irrigate the field</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <img width="150" src="assets/images/land_preperation/Picture13.png" />
+            <p>
+              <b>Irrigate the field</b><br><br>
+              Irrigate the field with 2-3 cm of water for about 3-7 days or until it is soft enough and suitable for an
+              equipment to be used.
+            </p>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="third">
+          <ion-item slot="header" color="light">
+            <ion-label>Step 3 - Perform primary tillage operations</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <p>
+              <b>Perform primary tillage operations</b><br><br>
+              Primary tillage is normally undertaken when the soil is wet enough to allow the field to be plowed and
+              strong enough to give reasonable levels of traction. This can be immediately after harvest or at the
+              beginning of the next season, depending on soil moisture and water availability.
+            </p>
+            <p><b>Plow the field.</b></p>
+            <ion-note>Implement options:</ion-note>
+            <p><b>Power</b>: 4-wheel tractor / 2 wheel tractor / animal power</p>
+            <p><b>Attachments</b>: Moldboard plow / disk plow / rotavator.</p>
+            <p>Make the first pass along the edges of the field in a clockwise pattern. For the second pass, move
+              counterclockwise and finish at the center.</p>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="fourth">
+          <ion-item slot="header" color="light">
+            <ion-label>Step 4 - Flood the field</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <img width="150" src="assets/images/land_preperation/Picture14.png" />
+            <p>
+              <b>Flood the field</b><br><br>
+              Keep the field submerged for 10-14 days after plowing to soften clods and to decompose organic materials.
+            </p>
+            <p><b>Tips</b></p>
+            <p>A well-prepared rice field has the following characteristics:</p>
+            <ul>
+              <li><p>Mud and water are thoroughly mixed</p></li>
+              <li><p>Weeds, rice straw, and stubble have been plowed under the soil and are thoroughly decayed.</p></li>
+              <li><p>Land is leveled.</p></li>
+            </ul>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="fifth">
+          <ion-item slot="header" color="light">
+            <ion-label>Step 5 - Perform secondary tillage operations</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <p>
+              <b>Perform secondary tillage operations</b><br><br>
+              Depending on climate and soil type, this should be done 10-14 days after primary workings.
+            </p>
+            <p><b>Puddle the field</b></p>
+            <ion-note>Implements:</ion-note>
+            <p>Power tiller, Hydrotiller, Rotovator Puddling works the soil into a muddy or watertight paste. This
+              minimizes water loss and increases nutrient retention and availability.</p>
+            <p><b>Harrow the field 2-3 times within 5-7 days interval.</b></p>
+            <ion-note>Implements:</ion-note>
+            <p>Power tiller with attached comb-tooth harrow, Rotovator.</p>
+            <p><b>Depending on soil and weed population, a field may require more than two harrowings.</b></p>
+            <p>The third and final harrowing aim to do initial land leveling and final incorporation of crop residues,
+              and provide proper soil tilth for crop growth.</p>
+          </div>
+        </ion-accordion>
+        <ion-accordion value="sixth">
+          <ion-item slot="header" color="light">
+            <ion-label>Step 6 - Level the field</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <p>
+              <b>Level the field</b><br><br>
+              Leveling should be done two (2) days before planting. Landprep-laser-leveler-3
+            </p>
+            <ion-note>Implements:</ion-note>
+            <p>Power tiller with attached wooden plank, Rotovator wide puddler with attached laser leveler.</p>
+            <p>Use wooden plank when leveling with a draft animal or small tractor. This requires total water coverage
+              of the field for 12 days. When using a two-wheel tractor, 7-8 days of water coverage is required per
+              hectare of land.</p>
+            <p>A leveled and smooth soil surface provides for uniform germination and growth of the crops. A
+              well-leveled field improves water coverage and is also proven to increase crop yield and quality.</p>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <div class="steps">
+
+
+      </div>
     </ion-text>
   </section>
-
 </ion-content>

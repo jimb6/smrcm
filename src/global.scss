@@ -25,6 +25,10 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+@import "swiper/swiper.min.css";
+@import "swiper/swiper-bundle.css";
+@import "@ionic/angular/css/ionic-swiper";
+
 
 // Custom Global CSS
 ion-toast.custom-toast {
@@ -58,4 +62,12 @@ p, .normal-line-spacing {
 
 a {
   text-decoration: none;
+}
+
+.transparent-modal {
+  --background: rgba(44, 39, 45, 0.2);
+
+  &::part(content) {
+    backdrop-filter: blur(12px);
+  }
 }

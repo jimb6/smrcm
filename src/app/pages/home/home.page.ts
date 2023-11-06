@@ -12,15 +12,15 @@ import {ViewWillEnter} from "@ionic/angular";
 export class HomePage implements OnInit, ViewWillEnter {
 
   public menu = [
-    {title: 'land preparation', image: 'assets/images/Land Preparation.jpg', url: '/pages/land-preparation'},
-    {title: 'use of fertilizer', image: 'assets/images/use_fertilizer.jpg', url: '/pages/fertilizer'},
-    {title: 'post harvest', image: 'assets/images/post_harvest.jfif', url: '/pages/harvest'},
-    {title: 'crop calendar', image: 'assets/images/Crop Calendar.jpg', url: '/pages/calendar'},
-    {title: 'best variety', image: 'assets/images/best_variety.png', url: '/pages/variety'},
-    {title: 'water', image: 'assets/images/Water.jpg', url: '/pages/water'},
-    {title: 'pests & diseases', image: 'assets/images/Pests & Diseases.jfif', url: '/pages/pests-diseases'},
-    {title: 'harvest on time', image: 'assets/images/Harvest on Time.png', url: '/pages/harvest-time'},
-    {title: 'storage', image: 'assets/images/Storage.jpg', url: '/pages/storage'},
+    {title: 'best variety', subtitle: 'Pagpili sa Binhi', image: 'assets/images/best_variety.png', url: '/pages/variety'},
+    {title: 'land preparation', subtitle: 'Pag-andam sa Uma', image: 'assets/images/Land Preparation.jpg', url: '/pages/land-preparation'},
+    {title: 'planting', subtitle: 'Pagtanum', image: 'assets/images/planting/Picture6.png', url: '/pages/planting'},
+    {title: 'use of fertilizer', subtitle: 'Pagdumala sa Nutrina', image: 'assets/images/fertilizer/Picture5.jpg', url: '/pages/fertilizer'},
+    {title: 'water', subtitle: 'Pagdumala sa Patubig', image: 'assets/images/water/Picture12.jpg', url: '/pages/water'},
+    {title: 'pests & diseases', subtitle: 'Pagdumala sa Peste', image: 'assets/images/pest_diseases/Picture8.png', url: '/pages/pests-diseases'},
+    {title: 'crop calendar', subtitle: '', image: 'assets/images/crop_calendar/Picture9.jpg', url: '/pages/calendar'},
+    {title: 'harvest on time', subtitle: 'Pagdumala sa Ani', image: 'assets/images/harvest_on_time/Picture10.png', url: '/pages/harvest-time'},
+    {title: 'storage', subtitle: 'Pagdumala Human sa Pag-ani',  image: 'assets/images/storage/Picture11.jpg', url: '/pages/storage'},
   ]
   public selectedCard = 0;
   public exConn: boolean;

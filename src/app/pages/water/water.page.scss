@@ -1,0 +1,11 @@
+ion-thumbnail {
+  --size: 140px;
+  --border-radius: 14px;
+}
+
+ion-content::part(scroll) {
+  touch-action: pan-y pinch-zoom;
+}
+
+
+body { font-family: Helvetica; }

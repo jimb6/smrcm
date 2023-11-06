@@ -29,6 +29,11 @@ const config: CapacitorConfig = {
       electronWindowsLocation: "C:\\ProgramData\\CapacitorDatabases",
       electronMacLocation: "/Volumes/Development_Lacie/Development/Databases",
       electronLinuxLocation: "Databases"
+    },
+    LocalNotifications: {
+      smallIcon: "ic_launcher_foreground",
+      iconColor: "#488AFF",
+      sound: "beep.wav"
     }
   }
 };

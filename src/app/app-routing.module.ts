@@ -58,7 +58,20 @@ const routes: Routes = [
   {
     path: 'pages/about',
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'pages/planting',
+    loadChildren: () => import('./pages/planting/planting.module').then( m => m.PlantingPageModule)
+  },  {
+    path: 'image-modal',
+    loadChildren: () => import('./pages/image-modal/image-modal.module').then( m => m.ImageModalPageModule)
+  },
+  {
+    path: 'new-schedule',
+    loadChildren: () => import('./pages/new-schedule/new-schedule.module').then( m => m.NewSchedulePageModule)
   }
+
+
 
 ];
 

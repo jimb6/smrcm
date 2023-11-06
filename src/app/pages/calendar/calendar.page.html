@@ -1,35 +1,318 @@
 <app-global-header title="Crop Calendar"></app-global-header>
-<ion-content [fullscreen]="true">
+<ion-content class="ion-padding">
+
+
+  <ion-datetime presentation="date"
+                [highlightedDates]="highlightedDates"
+                (click)="displayEvent($event)"
+                [(ngModel)]="currentSelectedDate"
+  />
+
+  <ion-input class="selected-event"
+             [value]="currentSelectedEvent"
+             placeholder="No selected event"
+             readonly="true"
+             fill="outline"
+  />
+
+<!--  <ion-accordion-group class="ion-margin-top">-->
+<!--    <ion-accordion value="first">-->
+<!--      <ion-item slot="header" color="light">-->
+<!--        <ion-label>Selected Production Calendar Label</ion-label>-->
+<!--      </ion-item>-->
+<!--      <div class="section" slot="content">-->
+<!--        <ion-list>-->
+<!--          <ion-item *ngFor="let highlight of highlightedDates; index as i"-->
+<!--                    lines="none" class="ion-activatable ripple-parent custom-parent ion-no-margin">-->
+<!--            <ion-label><b>{{ highlight.label }} - <span-->
+<!--              [style]="'color: ' + highlight.backgroundColor">{{ highlight.date }}</span></b></ion-label>-->
+<!--            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>-->
+<!--          </ion-item>-->
+<!--        </ion-list>-->
+<!--      </div>-->
+<!--    </ion-accordion>-->
+<!--  </ion-accordion-group>-->
+
+
   <div>
-    <ion-list-header>
-      <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
-    </ion-list-header>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 50%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
-        </p>
-      </ion-label>
-    </ion-item>
-    <p>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
-    </p>
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Production Calendar</ion-label>
+      </ion-list-header>
+
+      <ion-item-sliding *ngFor="let schedule of schedules; index as i">
+        <ion-item lines="none" class="items ion-activatable ripple-parent custom-parent ion-no-margin">
+          <ion-label>
+            <b>{{ schedule.label }}</b> - {{ schedule.remarks}}
+          </ion-label>
+          <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+          <ion-note class="list-note">Swipe to the right to take action</ion-note>
+        </ion-item>
+        <ion-item-options side="start">
+          <ion-item-option (click)="highlightSchedule(schedule)">View</ion-item-option>
+          <ion-item-option (click)="deleteSchedule(schedule)" color="danger">Delete</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+<!--    <ion-button size="small"-->
+<!--                fill="outline"-->
+<!--                expand="block">-->
+<!--      Show more...-->
+<!--    </ion-button>-->
   </div>
+
+  <ion-accordion-group class="ion-margin-top">
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Calendar Rice Production Guidelines</ion-label>
+      </ion-item>
+      <div class="section" slot="content">
+        <ol>
+          <li>
+            <p>Determine the best date to plant. THis information can be gathered from local experience, agriculture
+              advisor
+              and leading farmers in the district.</p>
+          </li>
+          <li>
+            <p>Determine the time the variety takes from planting to harvest. The length of time from establishment to
+              harvest is known for each variety. It may vary a little depending on the growing conditions especially
+              water
+              availability and solar radiation. Normally short duration varieties take 100 - 120 days, medium duration
+              120 -
+              140 days, and long duration 160 days plus.</p>
+
+            <swiper-container>
+              <swiper-slide><img src="assets/images/crop_calendar/crop.png"
+                                 (click)="openPreview('assets/images/crop_calendar/crop.png')"></swiper-slide>
+            </swiper-container>
+          </li>
+          <li>
+            <p>Most varieties take 60-65 days from panicle initiation to harvest.</p>
+          </li>
+          <li>
+            <p>Mark on the calendar the date f planting and then when each other operation needs to be done (Plowing,
+              weeding, fertilizing, harvesting).</p>
+          </li>
+          <li>
+            <p>Then determine how much labor, equipment and finance will be required at each step during the growing
+              period.</p>
+          </li>
+          <li>
+            <p>Pin the calendar in a prominent place to remind you when things need to be done.</p>
+          </li>
+        </ol>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button id="inputmodal">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal #modal trigger="inputmodal" [presentingElement]="presentingElement">
+    <ng-template>
+      <ion-header [translucent]="true">
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="modal.dismiss()">Close</ion-button>
+          </ion-buttons>
+          <ion-title>New Schedule</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="primary"
+                        [strong]="true"
+                        [disabled]="!this.schedule.label"
+                        (click)="addSchedule($event)">Save
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content [fullscreen]="true">
+        <ion-list>
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       label="Label"
+                       placeholder="Add label"
+                       mode="ios"
+                       [(ngModel)]="schedule.label"
+                       [value]="schedule.label"
+            ></ion-input>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       label="Remarks"
+                       placeholder="Add remarks"
+                       [(ngModel)]="schedule.remarks"
+                       [value]="schedule.remarks"
+            />
+          </ion-item>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       type="date"
+                       label="Land Preparation"
+                       [value]="schedule.landPrep | date: 'yyyy-MM-dd'"
+                       (ionChange)="updateLandPreparation($event)"
+            />
+          </ion-item>
+
+          <ion-note class="help-text">
+            (Farmer's Practice: 1 month) - Operations applied by farmers in preparation before planting.
+          </ion-note>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       type="date"
+                       label="Seedling Preparation"
+                       readonly="true"
+                       [value]="schedule.seedlingPrep | date: 'yyyy-MM-dd'"
+            />
+          </ion-item>
+
+          <ion-note class="help-text">
+            Seeds are submerged in the water for 12 - 24 hrs.
+            Purpose: to soften the seed coat (rice hull) to increase the chance of germination. Rest the seeds for
+            24hrs. (1
+            day)
+          </ion-note>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       type="date"
+                       label="Broadcasting of Seedlings"
+                       readonly="true"
+                       [value]="schedule.broadcasting | date: 'yyyy-MM-dd'"
+            />
+          </ion-item>
+
+          <ion-note class="help-text">
+            1 day process. Seeds are broadcasted to rice paddies with 1 inch water level (pre-germination)
+            <br><br>
+            - After 7 days - Spray insecticide<br>
+            - After 15 days - Spray insecticide
+          </ion-note>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       type="date"
+                       label="Preparation of Rice Field (Plotting)"
+                       readonly="true"
+                       [value]="schedule.plotting | date: 'yyyy-MM-dd'"
+            />
+          </ion-item>
+
+          <ion-note class="help-text">
+            18 days after the broadcasting of seedlings.
+          </ion-note>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       type="date"
+                       label="Transplanting of the pre-germinated seeds"
+                       readonly="true"
+                       [value]="schedule.transplanting | date: 'yyyy-MM-dd'"
+            />
+          </ion-item>
+
+          <ion-note class="help-text">
+            19 days after the seeds are broadcasted.
+          </ion-note>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       type="date"
+                       label="Application of Fertilizers"
+                       readonly="true"
+                       [value]="schedule.sideDressFertilizer | date: 'yyyy-MM-dd'"
+            />
+          </ion-item>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       type="date"
+                       label="Application of Fertilizers"
+                       readonly="true"
+                       [value]="schedule.topDressFertilizer | date: 'yyyy-MM-dd'"
+            />
+          </ion-item>
+
+
+          <ion-note class="help-text">
+            - Side dressing of fertilizer application method - 10 days after transplanting. Side dressing is the
+            placement of
+            fertilizer in between the rows of the plants. <br><br>
+            - Top dress application method - 15 days after transplanting. Top dressing application is a broadcasting
+            method of
+            applying fertilizer close to the transplanted crops.
+          </ion-note>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       label="Monitoring"
+                       readonly="true"
+                       [value]="schedule.firstMonitoring[0] | date: 'yyyy-MM-dd'.concat(' - ', schedule.firstMonitoring[1] | date: 'yyyy-MM-dd')"
+            />
+          </ion-item>
+
+          <ion-note class="help-text">
+            16-40 days after transplanting. Done continuously.<br><br>
+            - 40th day - Spraying of insecticide<br>
+            - 60th day - Spraying of insecticide<br>
+            - 90th day - Spraying of insecticide (Foliar Application). Foliar application method is the direct
+            application of
+            pesticides (insecticides, fungicides, et.) to the leaves of the plants.<br>
+          </ion-note>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       label="90 - 100 Days Monitoring"
+                       readonly="true"
+                       [value]="schedule.secondMonitoring[0] | date: 'yyyy-MM-dd'.concat(' - ', schedule.secondMonitoring[1] | date: 'yyyy-MM-dd')"
+            />
+          </ion-item>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       label="100th days - Harvesting"
+                       readonly="true"
+                       [value]="schedule.preHarvesting | date: 'yyyy-MM-dd'"
+            />
+          </ion-item>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       label="2 - 3 days after harvesting"
+                       readonly="true"
+                       [value]="(schedule.postHarvesting[0] | date: 'yyyy-MM-dd').concat(' - ', schedule.postHarvesting[1] | date: 'yyyy-MM-dd')"
+            />
+          </ion-item>
+
+          <ion-note class="help-text">
+            Drying of the harvested mature rice crop in the field. Purpose: to reduce the moisture content of rice for
+            save
+            and long term storage.
+          </ion-note>
+
+          <ion-item>
+            <ion-input label-placement="stacked"
+                       type="text"
+                       label="Milling then Storing"
+                       readonly="true"
+                       [value]="schedule.milling | date: 'yyyy-MM-dd'"
+            />
+          </ion-item>
+        </ion-list>
+
+<!--        <ion-button class="ion-margin" expand="block">Add Schedule</ion-button>-->
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
 </ion-content>

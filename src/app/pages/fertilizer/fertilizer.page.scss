@@ -6,3 +6,27 @@ ion-thumbnail {
 ion-content::part(scroll) {
   touch-action: pan-y pinch-zoom;
 }
+
+body {
+  font-family: Helvetica;
+}
+
+
+.section {
+  img {
+    float: left;
+    margin: 10px;
+
+  }
+}
+
+
+.title {
+  display: flex;
+  align-items: center;
+
+  img {
+    float: left;
+    margin: 10px;
+  }
+}

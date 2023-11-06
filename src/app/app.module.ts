@@ -16,6 +16,7 @@ import {ContentRepository} from "./repositories/contents/content.repository";
 import {ContentDefaultQueryRepository} from "./repositories/contents/content.default.query";
 import {SeederService} from "./services/seeder.service";
 import {DetailService} from "./services/detail.service";
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 export function initializeFactory(init: InitializeAppService) {
   return async () => await init.initializeApp();
@@ -41,9 +42,9 @@ export function initializeFactory(init: InitializeAppService) {
     UserDefaultQueryRepository,
     ContentRepository,
     ContentDefaultQueryRepository,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
 

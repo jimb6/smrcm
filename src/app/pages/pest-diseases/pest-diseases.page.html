@@ -1,35 +1,51 @@
 <app-global-header title="Pests & Diseases"></app-global-header>
-<ion-content [fullscreen]="true">
-  <div>
-    <ion-list-header>
-      <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
-    </ion-list-header>
-    <ion-item>
-      <ion-thumbnail slot="start">
-        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
-      </ion-thumbnail>
-      <ion-label>
-        <h3>
-          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
-        </h3>
-        <p>
-          <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
-        </p>
-        <p>
-          <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 50%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 70%;"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
-        </p>
-      </ion-label>
-    </ion-item>
-    <p>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 100%;"></ion-skeleton-text>
-      <ion-skeleton-text [animated]="true" style="width: 90%;"></ion-skeleton-text>
-    </p>
-  </div>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item lines="none">
+    <ion-thumbnail slot="start">
+      <img alt="" src="assets/images/pest_diseases/Picture8.png"/>
+    </ion-thumbnail>
+    <div>
+      <h2 class="ion-text-wrap">
+        Pest & Diseases
+      </h2>
+      <ion-note>
+        Pagdumala sa Peste
+      </ion-note>
+    </div>
+  </ion-item>
+
+  <section id="">
+    <div class="section">
+      <p class="ion-text-justify">
+        <b>Kamahinungdanon.</b> ANasayran na kung giunsa sa tanum nga humay makiglambigit sa biotic factors ug sa
+        agroecosystem, ug saktong pag-ila sa mga peste ug pag-aplay ug mga estratehiya nga makaayo sa kinaiyahan ug
+        makatabang nga malikayan ang pagkunhod sa abot.
+        Mapa-usbaw usab nini ang taas ug kalidad nga mga lugas sa humay.
+      </p>
+      <p>
+        Walay pagkunhod sa abot tungod sa mga pesteng insekto, sakit, sagbot, ilaga, kohol ug mga langgam. Ang maong
+        pagkunhod mahitabo kung usa o mas daghan mga peste ang makahamtang sa kadaot.
+      </p>
+    </div>
+    <div>
+      <hr/>
+      <ion-button expand="block" (click)="takePicture()">Take Photo</ion-button>
+      <p class="ion-text-center">
+        Para maila ang sakit sa humay, e click ang “Take Photo”, unya picture ang dahon sa humay nga adunay sakit.
+      </p>
+      <hr/>
+    </div>
+
+    <div class="section">
+      <p class="ion-text-justify">
+        Table 1. Lebel sa pesteng insekto inubanan sa mikunhod nga abot (alang sa 120-day-maturing nga barayti).
+        Ang mga pesteng insekto monitoron sa sayo sa buntag (5:00-7:00AM) o sa hapon (5:00PM). Ang ubang peste kasagaran mamonitor sa hapon.
+      </p>
+
+      <swiper-container>
+        <swiper-slide><img src="assets/images/pest_diseases/Picture17.png" (click)="openPreview('assets/images/pest_diseases/Picture17.png')"></swiper-slide>
+      </swiper-container>
+
+    </div>
+  </section>
 </ion-content>

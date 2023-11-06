@@ -5,10 +5,9 @@ import {FormsModule} from '@angular/forms';
 import {IonicModule} from '@ionic/angular';
 
 import {CalendarPageRoutingModule} from './calendar-routing.module';
-
 import {CalendarPage} from './calendar.page';
-import {GlobalHeaderComponent} from "../../components/global-header/global-header.component";
 import {SharedModule} from "../../modules/shared/shared.module";
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 @NgModule({
   imports: [
@@ -18,7 +17,8 @@ import {SharedModule} from "../../modules/shared/shared.module";
     CalendarPageRoutingModule,
     SharedModule
   ],
-  declarations: [CalendarPage]
+  declarations: [CalendarPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CalendarPageModule {
 }
